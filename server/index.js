@@ -21,8 +21,17 @@ app.get('/photos/:propertyID', (req, res) => {
 });
 
 //send get request to details service
+app.get('/details/:propertyID', (req, res) => {
+  axios.get(`http://localhost:3003/details/${req.params.propertyID}`)
+  .then((details) => {
+    res.send(details.data);
+  })
+  .catch((err) => {
+    res.send(err);
+  })
+});
 
-//send get request to calendar component
+//send get request to checkout/calendar component
 
 //send get request to reviews service
 
