@@ -43,25 +43,25 @@ app.get('/checkoutInformation/:productID', (req, res) => {
 })
 
 //send get request to reviews service - 2 requests
-// app.get('/:listingID/reviews', (req, res) => {
-//   axios.get(`http://localhost:3006/${req.params.listingID}/reviews`)
-//   .then((reviews) => {
-//     res.send(reviews.data);
-//   })
-//   .catch((err) => {
-//     res.send(err);
-//   })
-// });
+app.get('/:listingID/reviews', (req, res) => {
+  axios.get(`http://localhost:3006/${req.params.listingID}/reviews`)
+  .then((reviews) => {
+    res.send(reviews.data);
+  })
+  .catch((err) => {
+    res.send(err);
+  })
+});
 
-// app.get('/:listingID/averageReviewsRating', (req, res) => {
-//   axios.get(`http://localhost:3003/${req.params.listingID}/averageReviewsRating`)
-//   .then((avgReviews) => {
-//     res.send(avgReviews.data);
-//   })
-//   .catch((err) => {
-//     res.send(err);
-//   })
-// });
+app.get('/:listingID/averageReviewsRating', (req, res) => {
+  axios.get(`http://localhost:3006/${req.params.listingID}/averageReviewsRating`)
+  .then((avgReviews) => {
+    res.send(avgReviews.data);
+  })
+  .catch((err) => {
+    res.send(err);
+  })
+});
 
 app.listen(port, () => {
   console.log(`Proxy server running on http://localhost:${port}`);
